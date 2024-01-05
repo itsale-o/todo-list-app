@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+   {{ user.username }}'s task list
+{% endblock %}
+
+{% block content %}
+<div class="task-list">
+    <h1 style="text-transform: capitalize;">{{ user.username }}'s to-do list</h1>
+    <div id="add-task-div">
+        <a id="link-btn" href="new-task/">
+            <div id="add-task-btn">
+                <ion-icon name="add"></ion-icon>
+                <p class="n-t">New task</p>
+            </div>
+        </a>        
+        <div id="search-div">
+            <form action="" id="search-form" method="GET">  
+                <input type="text" id="search" name="search" placeholder="Type to find a task..." value="{{ request.GET.search }}">
+                <ion-icon id="submit-search" name="search"></ion-icon>
+            </form>  
+        </div>
+    </div>
+    <!--<div class="filter-task">
+        <span>Filter your tasks by their status: </span>
+        <select name="Filter" id="filter">
+            <option value="----"></option>
+            <option value="done">Done</option>
+            <option value="doing">Doing</option>
+        </select>
+    </div>-->
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %}class="alert" id="success-message"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    <ul id="tasks">
+        {% for task in tasks %}
+        {% if task.done == 'doing' %}
+        <li class="task-item">
+        {% else %}
+        <li class="task-item done">
+        {% endif %}
+            <span class="task-link" style="text-transform: capitalize;"><a href="/task/{{ task.id }}">{{ task.title }}</a></span>
+            <div class="icons">
+                <a id="link-edit-task" href="edit-task/{{ task.id }}"><ion-icon class="create" name="create"></ion-icon></a>
+                <a class="delete-btn" id="link-delete-task" href="delete-task/{{ task.id }}"><ion-icon class="trash" name="trash"></ion-icon></a>
+                <a class="check-btn" id="link-check-task" href="changestatus/{{ task.id }}"><ion-icon class="check" name="checkmark-circle"></ion-icon></a>
+            </div>            
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="pagination">
+        <span class="step-links">
+            {% if tasks.has_previous %}
+            <a class="arrow-link" href="?page={{ tasks.previous_page_number }}"><ion-icon class="arrow left" name="chevron-back-circle"></ion-icon></a>
+            {% endif %}
+            {% if tasks.paginator.num_pages %}
+            <span class="current-page">
+                {{ tasks.number }} out of {{ tasks.paginator.num_pages }}
+            </span>
+            {% endif %}
+            {% if tasks.has_next %}
+            <a class="arrow-link" href="?page={{ tasks.next_page_number }}"><ion-icon class="arrow right" name="chevron-forward-circle"></ion-icon></a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+{% endblock %}

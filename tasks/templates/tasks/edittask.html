@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Edit task
+{% endblock %}
+
+{% block content %}
+<div class="task-list">
+    <h1>Editing...</h1>
+    <form id="new-task-form" action="" method="POST">
+        {% csrf_token %}
+        <div class="title">
+            <p>Title</p>           
+            {{ form.title }}          
+        </div>
+        <div class="description">
+            <p>Details</p>
+            {{ form.description }}
+        </div>
+        <input id="create-new-task" type="submit" value="Edit Task">
+    </form>   
+</div>
+{% endblock %}

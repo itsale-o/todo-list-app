@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block content%}
+<div class="content-about">
+    <div class="about-me">
+        <h2>Who Am I?</h2>
+        <p>
+            I'm Alessandra, 26 years old, studying to be a web developer. 
+            Currently I'm working on personal projetcs just like this one. 
+            You can see more about them on my github page by 
+            <a class="link" href="https://github.com/itsale-o">clicking here.</a>
+        </p>
+        <div class="social-media">
+            <p>Feel free to follow me on social media as well:</p>
+            <a class="github" href="https://github.com/itsale-o"><ion-icon class="logo m-r" name="logo-github"></ion-icon></a>  
+            <a class="twitter" href="https://twitter.com/itsale_o"><ion-icon class="logo m-r" name="logo-twitter"></ion-icon></a>
+            <a class="instagram" href="https://www.instagram.com/itsale_o/?igsh=MW5zaHZjamRsc3diZA%3D%3D"><ion-icon class="logo" name="logo-instagram"></ion-icon></a>
+        </div>
+    </div>
+    <div class="about-project">
+        <h2>About the project</h2>
+        <h3>What is it?</h3>
+        <p class="p-1">
+            It is a commom to-do list, I'm sure everyone has seen/worked with one before.
+            A list where you put the things you have to do on that day/week/month/year.
+        </p>
+        <h3>How does it work?</h3>
+        <p>
+            Like any other to-do list around. 
+            You can:
+        </p>
+        <ul>
+            <li>register a new task</li>
+            <li>edit a task</li>
+            <li>delete a task</li>
+            <li>mark a task as completed</li>
+            <li>look for a specific task using the search bar</li>
+        </ul>
+    </div>  
+    <div class="credits">
+        <h2>Credits</h2>
+        <p>
+            This project was based on a similar one made by <span class="span-1">Matheus Battisti</span>, 
+            a brazilian programmer. You can find his social media here:
+        </p>
+        <div class="m-social-media">
+            <div class="s-m s-m1">
+                <p>Github page:</p>
+                <a class="github" href="https://github.com/matheusbattisti"><ion-icon class="logo" name="logo-github"></ion-icon></a>           
+            </div>
+            <div class="s-m s-m2">
+                <p>Blog:</p> 
+                <a class="blog" href="https://horadecodar.com.br/"><ion-icon class="logo" name="at-circle"></ion-icon></a>
+            </div>
+            <div class="s-m">
+                <p>Youtube channel:</p>          
+                <a class="youtube" href="https://www.youtube.com/@MatheusBattisti"><ion-icon class="logo" name="logo-youtube"></ion-icon></a>
+            </div>          
+        </div>
+        <p>
+            The logo  used on this project was an icon made by 
+            <a class="icon-link link" href="https://www.flaticon.com/free-icons/to-do" title="to do icons">
+                Flaticon</a>. They create icons for free.
+        </p>
+    </div>
+</div>
+{% endblock %}

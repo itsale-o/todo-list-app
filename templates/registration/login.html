@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+<div class="task-list login-div">
+    <h1 class="login-title">Log in to continue</h1>
+    <form method="POST" class="login-form">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        <div class="title username field">
+            <p>Username*</p>
+            <input class="login-input" type="text" name="username">
+        </div>
+        <div class="title password field">
+            <p>Password*</p>
+            <input type="password" class="login-input" name="password">
+        </div>
+        <button type="submit" class="login-btn">Log In</button>
+    </form> 
+    <p class="p-login-register">Don't have an account yet? <a href="/accounts/register">Click here to sign up</a></p> 
+</div>
+{% endblock %}
+
+
+<!--
+    ESCREVER UM INPUT COM name="username" -> o django reconhece o name automaticamente
+    ESCREVER UM INPUT COM name="password"
+
+    method="POST"
+
+-->
+
+<!--
+<div class="task-list login-div">
+    <h1 class="login-title">Log in to continue</h1>
+    <form class="login-form" action="" method="POST">
+        {% csrf_token %}     
+        <input type="hidden" name="next" value="{{ next }}">
+        <div class="title username field">
+            <p>Username*</p>
+            {{ form.username }}
+        </div>
+        <div class="title password field">
+            <p>Password*</p>
+            {{ form.password }}
+        </div>
+        <button type="submit" class="login-btn">Log In</button>
+    </form>   
+</div>
+
+-->

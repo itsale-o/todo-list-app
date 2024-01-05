@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="imagex/png" href="{% static 'images/to-do-list.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="container">
+        <nav id="navbar">
+            <div class="img-nav-bar">
+                <a href="/" class="navbar-brand">
+                    <img src="{% static 'images/to-do-list.png' %}" alt="">
+                    To-Do List
+                </a>
+            </div>
+            <div id="navbar-content">
+                <ul id="navbar-items">
+                    {% if user.is_authenticated %}
+                    <li class="item-one">
+                        <a class="header-link" href="/">Tasks</a>
+                    </li>
+                    <!--<li class="item-two">
+                        <a class="header-link" href="#">Users</a>
+                    </li>-->
+                    {% else %}
+                    <li class="item-three">
+                        <a class="header-link" href="/accounts/login">Login</a>
+                    </li>
+                    {% endif %}
+                    <li class="item-four">
+                        <a class="header-link" href="/aboutme">About</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="item-five">
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button id="logout-btn" type="submit">Log Out</button>
+                        </form>
+                        <!--<a class="header-link" href="{% url 'logout' %}">Logout</a>-->
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </div>
+    {% block content %}
+
+    {% endblock %}
+
+    <footer>
+        <p>Project built with python <a href="https://www.djangoproject.com/start/overview/">(Django)</a>  </p>
+        <p>Coded by <a href="https://github.com/itsale-o">Alessandra Oliveira</a></p>           
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block content %}
+<div class="task-list signup-div">
+    <h1 class="login-title">Sign up to continue</h1>
+    <form method="POST" class="login-form">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        <div class="title username field">
+            <p>Username*</p>
+            <input class="login-input" type="text" name="username">
+        </div>
+        <div class="title password field">
+            <p>Password*</p>
+            <input type="password" class="login-input" name="password1">
+        </div>
+        <div class="title password field">
+            <p>Confirm Password*</p>
+            <input type="password" class="login-input" name="password2">
+        </div>
+        <button type="submit" class="login-btn">Sign Up</button>
+    </form>  
+    <p class="p-login-register">Already have an account? <a href="/accounts/login">Click here to log in</a></p> 
+</div>
+{% endblock %}

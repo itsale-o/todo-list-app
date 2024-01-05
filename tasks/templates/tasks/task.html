@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ task.title }}
+{% endblock %}
+
+{% block content %}
+<div class="single-task">
+    <h1 style="text-transform: capitalize;">{{ task.title }}</h1>
+    <p style="font-weight: 500;">Details - {{ task.description }}</p>
+</div>
+{% endblock %}
