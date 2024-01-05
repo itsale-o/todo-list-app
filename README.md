@@ -1,5 +1,7 @@
 # To-Do List Application
 
+**NOTE:** *I'm still working to deploy the app, because of that, some lines may look a little unsual on the settings.py file*
+
 ## Table of contents
 
 - [Overview](#overview)
