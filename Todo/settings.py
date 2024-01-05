@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -90,14 +91,11 @@ DATABASES = {
     }
 }
 
-import dj_database_url
-
 DATABASE_URL = os.getenv('DATABASE_URL')
-
 if DATABASE_URL:
     DATABASES = {
         'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800)
-    }
+}
 
 
 # Password validation
@@ -139,7 +137,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / 'tasks'/ 'static',
 ]
 
 # Default primary key field type
